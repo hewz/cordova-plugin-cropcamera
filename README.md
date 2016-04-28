@@ -1,6 +1,6 @@
 #Cordova/ionic Cropped Camera for Android
 
-This plugin is written to capture images only show in a rect.
+This plugin is written to capture images only shown in a rect.
 
 ###Install
 ```
@@ -25,8 +25,9 @@ cordova/ionic plugin remove com.hewz.plugins.crop-camera
 ```
 
 ###Notice
-> Running in Android 6.0 and above should firstly request Camera permission.
-> This plugin uses the old Android Camera API. So it works wrong in Nexus 5X as I know.
+> * Running in Android 6.0 and above should firstly request Camera permission.
+
+> * This plugin uses the old Android Camera API. So it works wrong in Nexus 5X as I know.
 
 ###Todo
 > Upgrade the Camera API.
