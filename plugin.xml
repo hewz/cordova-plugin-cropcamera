@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  id="com.hewz.plugins.crop-camera"
+  version="1.0.0">
+  <name>CropCamera</name>
+
+  <js-module src="www/crop_camera.js" name="CropCamera">
+    <clobbers target="CropCamera" />
+  </js-module>
+
+
+  <!-- android -->
+  <platform name="android">
+
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="CropCamera">
+        <param name="android-package" value="com.hewz.plugins.camera.CropCamera" />
+      </feature>
+    </config-file>
+
+    <config-file target="AndroidManifest.xml" parent="/*">
+        <uses-permission android:name="android.permission.CAMERA" />
+        <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+        
+        <uses-feature android:name="android.hardware.camera" android:required="true" />
+        <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="true" />
+      
+    </config-file>
+    
+    <config-file target="AndroidManifest.xml" parent="/manifest/application">
+        <activity
+            android:name="com.hewz.plugins.camera.MainActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:screenOrientation="portrait">
+        </activity>
+    </config-file>
+    
+    <source-file src="src/android/CropCamera.java" target-dir="src/com/hewz/plugins/camera" />
+    <source-file src="src/android/CameraParaUtil.java" target-dir="src/com/hewz/plugins/camera" />
+    <source-file src="src/android/DisplayUtil.java" target-dir="src/com/hewz/plugins/camera" />
+    <source-file src="src/android/MainActivity.java" target-dir="src/com/hewz/plugins/camera" />
+    <source-file src="src/android/MaskView.java" target-dir="src/com/hewz/plugins/camera" />
+    <source-file src="src/android/SdkVersion.java" target-dir="src/com/hewz/plugins/camera" />
+    <source-file src="src/android/Storage.java" target-dir="src/com/hewz/plugins/camera" />
+    
+    <source-file src="src/android/res/anim/focus.xml" target-dir="res/anim" />
+    <source-file src="src/android/res/drawable-hdpi/btn_shutter.png" target-dir="res/drawable-hdpi" />
+    <source-file src="src/android/res/drawable-mdpi/btn_shutter.png" target-dir="res/drawable-mdpi" />
+    <source-file src="src/android/res/drawable-xhdpi/btn_shutter.png" target-dir="res/drawable-xhdpi" />
+    <source-file src="src/android/res/drawable-xxhdpi/btn_shutter.png" target-dir="res/drawable-xxhdpi" />
+    <source-file src="src/android/res/drawable-hdpi/focus_circle.xml" target-dir="res/drawable-hdpi" />
+    <source-file src="src/android/res/layout/activity_cropcamera.xml" target-dir="res/layout" />
+    
+    
+  </platform>
+
+</plugin>
